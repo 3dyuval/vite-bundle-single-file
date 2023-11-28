@@ -6,9 +6,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [vue(),
-		cssInjectedByJsPlugin(),
-	],
+	plugins: [vue(), cssInjectedByJsPlugin()],
 	root: fileURLToPath(new URL('./src/iframe', import.meta.url)),
 	build: {
 		emptyOutDir: false,
@@ -29,8 +27,8 @@ export default defineConfig({
 		},
 	},
 	define: {
-		'process.env': {}
-	  },
+		'process.env': {},
+	},
 	resolve: {
 		alias: {
 			'~': fileURLToPath(new URL('./src', import.meta.url)),

@@ -27,19 +27,29 @@ const concurrently = import.meta.env.VITE_CONCURRENTLY;
   outline: 1px solid black;
   border-radius: 1rem;
   color: black;
+  transform: translateY(25%);
   opacity: 0;
-  transition: 200ms ease-in-out;
+  transition: 200ms ease-in;
   z-index: 100000;
-  overflow-x: hidden;
+  overflow: hidden;
   margin: auto;
-  overflow-y: auto;
+  pointer-events: none;
+
   > iframe {
     height: 100%;
-    width: 12.5rem;
+    width: 100%;
     border: none;
+    overflow-y: auto;
   }
+
+  
   &.open {
     opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0%);
+    transition: transform 100ms ease-out;
   }
+
+
 }
 </style>

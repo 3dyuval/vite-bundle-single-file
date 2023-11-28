@@ -7,11 +7,9 @@ const app = createApp(App)
 const isProd = import.meta.env.PROD
 
 if (isProd) {
-    const element = document.createElement('div')
-    element.id = 'app-iframe'
-    document.body.appendChild(element)
+	const element = document.createElement('div')
+	element.id = 'app-iframe'
+	document.body.appendChild(element)
 }
 
 app.mount('#app-iframe')
-
-
