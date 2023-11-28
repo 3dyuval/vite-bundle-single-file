@@ -21,3 +21,4 @@ pnpm run build
 ```bash
 pnpm run preview
 ```
+and then open your browser at localhost:3000/staging.html
