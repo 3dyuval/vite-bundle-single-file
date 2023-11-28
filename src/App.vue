@@ -39,10 +39,13 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss">
-#app-inject {
+#app-iframe {
   position: fixed;
   right: 2rem;
   bottom: 2rem;
   z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 </style>
