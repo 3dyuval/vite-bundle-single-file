@@ -1,17 +1,23 @@
 #scripts
 
-1. install `pnpm`
-
+1. install `pnpm` and update dependencies
 ```bash
 npm i -g pnpm
+pnpm i
 ```
 
-2. preview
+2. development mode: `dev`
 ```bash
-pnpm run preview
+pnpm run dev
 ```
 
-3. build
+3. build a bundle, (including css): `build`
 ```bash
 pnpm run build
+```
+
+4. preview
+   usage example in /staging
+```bash
+pnpm run preview
 ```
