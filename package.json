@@ -3,18 +3,25 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "pm2 serve dist 3000"
+    "dev:iframe": "vite -c vite.config.iframe.js",
+    "dev:app": "vite -c vite.config.app.js",
+    "dev":"set VITE_CONCURRENTLY=true && concurrently -k \"pnpm run dev:*\"",
+    "build:iframe": "vite build -c vite.config.iframe.js",
+    "build:app": "vite build -c vite.config.app.js",
+    "build": "pnpm run build:app && pnpm run build:iframe",
+    "preview:iframe": "pm2 serve --spa ./staging 4040",
+    "preview:app": "pm2 serve ./dist 3030",
+    "preview": "pm2 stop all && pnpm run build && concurrently -k \"pnpm run preview:*\""
   },
   "dependencies": {
     "vue": "^3.3.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.4.0",
-    "vite-plugin-css-injected-by-js": "^3.3.0",
+    "concurrently": "^8.2.2",
     "pm2": "^5.3.0",
     "sass": "^1.69.5",
-    "vite": "^4.4.11"
+    "vite": "^4.4.11",
+    "vite-plugin-css-injected-by-js": "^3.3.0"
   }
 }

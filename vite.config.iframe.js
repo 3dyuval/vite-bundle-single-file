@@ -9,9 +9,12 @@ export default defineConfig({
 	plugins: [vue(),
 		cssInjectedByJsPlugin(),
 	],
+	root: fileURLToPath(new URL('./src/iframe', import.meta.url)),
 	build: {
+		emptyOutDir: false,
+		outDir: fileURLToPath(new URL('./dist', import.meta.url)),
 		lib: {
-			entry: fileURLToPath(new URL('./src/main.js', import.meta.url)),
+			entry: fileURLToPath(new URL('./src/iframe/main.js', import.meta.url)),
 			name: 'InjectChat',
 			fileName: 'inject',
 		},
@@ -28,10 +31,13 @@ export default defineConfig({
 	define: {
 		'process.env': {}
 	  },
-
 	resolve: {
 		alias: {
-			'@': fileURLToPath(new URL('./src', import.meta.url)),
+			'~': fileURLToPath(new URL('./src', import.meta.url)),
 		},
+	},
+	server: {
+		port: 4040,
+		strictPort: true,
 	},
 })

@@ -1,6 +1,6 @@
 <script setup>
-import Chat from "./components/Chat.vue";
-import Fab from "./components/Fab.vue";
+import ChatContainer from "~/components/ChatContainer.vue";
+import Fab from "~/components/Fab.vue";
 import { reactive, onMounted, onBeforeUnmount } from "vue";
 
 const chat = reactive({
@@ -34,7 +34,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <chat v-bind="chat" />
+  <chat-container v-bind="chat" />
   <fab @open-chat="toggleChat" :count="chat.messages.length" />
 </template>
 
