@@ -16,6 +16,10 @@ const concurrently = import.meta.env.VITE_CONCURRENTLY;
 </template>
 
 <style lang="scss">
+#app-iframe, #app-chat {
+  all: unset;
+  font-family: sans-serif !important;
+}
 .chat-container {
   height: 30rem;
   max-height: 50vh;

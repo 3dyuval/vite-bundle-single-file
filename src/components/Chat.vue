@@ -2,22 +2,15 @@
 console.log("hello");
 </script>
 <template>
-  <h1>hhhelllooo</h1>
+  <h2>Chat iframe</h2>
+  <p>This is chat app within an iframe, it is a separate app from the main app.</p>
+  <hr />
+  <p>The '💬' and this window are inject with a single javascript script tag.</p>
+  <hr />
   <p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam enim eaque
-    repellat aspernatur rem ipsa unde, iusto praesentium saepe numquam natus, assumenda
-    distinctio, eius ducimus! Delectus eligendi iusto voluptates voluptatum.
-  </p>
-  <hr>
-  <p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam enim eaque
-    repellat aspernatur rem ipsa unde, iusto praesentium saepe numquam natus, assumenda
-    distinctio, eius ducimus! Delectus eligendi iusto voluptates voluptatum.
-  </p>
-  <hr>
-  <p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam enim eaque
-    repellat aspernatur rem ipsa unde, iusto praesentium saepe numquam natus, assumenda
-    distinctio, eius ducimus! Delectus eligendi iusto voluptates voluptatum.
+    With this repository, you can create develop 2 apps simultaneously, and deploy them
+    together. These two apps then can communicate with each other via postMessage. Any
+    client who wants to implenent this chat app, can simply inject the script tag, and the
+    chat app will be available.
   </p>
 </template>
