@@ -21,11 +21,6 @@ onBeforeUnmount(() => {
   clearInterval(msgInterval);
 })
 
-watch(messages, (values) => {
-
-})
-
-
 
 </script>
 <template>
