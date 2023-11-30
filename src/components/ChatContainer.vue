@@ -3,15 +3,18 @@ import Chat from "~/components/Chat.vue";
 defineProps({ open: Boolean, messages: Array });
 defineOptions({ inheritAttrs: false });
 
-const isProd = import.meta.env.PROD;
 const iframeUrl = import.meta.env.VITE_CHAT_URL;
-const concurrently = import.meta.env.VITE_CONCURRENTLY;
+const concurrently = !import.meta.env.VITE_RUN_SINGLE;
+
+console.info({iframeUrl, concurrently});
 </script>
 <template>
   <div class="chat-container" :class="{ open: open }">
-    <iframe v-if="isProd" :src="iframeUrl"> </iframe>
-    <iframe v-else-if="concurrently" src="http://localhost:3030"></iframe>
-    <chat v-else />
+    <iframe v-if="iframeUrl && concurrently" :src="iframeUrl"> </iframe>
+    <template  v-else>
+      <strong style="color: red;">Running locally!</strong>
+      <chat/>
+    </template>
   </div>
 </template>
 

@@ -8,6 +8,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
 	plugins: [vue(), cssInjectedByJsPlugin()],
 	root: fileURLToPath(new URL('./src/iframe', import.meta.url)),
+	envDir: fileURLToPath(new URL('./', import.meta.url)),
 	build: {
 		emptyOutDir: false,
 		outDir: fileURLToPath(new URL('./dist', import.meta.url)),

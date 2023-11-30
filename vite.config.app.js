@@ -8,9 +8,16 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
 	plugins: [vue()],
 	root: fileURLToPath(new URL('./src/app', import.meta.url)),
+	envDir: fileURLToPath(new URL('./', import.meta.url)),
 	build: {
 		emptyOutDir: true,
 		outDir: fileURLToPath(new URL('./dist', import.meta.url)),
+		rollupOptions: {
+			input: {
+				main: fileURLToPath(new URL('./src/app/chat/index.html', import.meta.url)),
+				dashboard: fileURLToPath(new URL('./src/app/dashboard/index.html', import.meta.url)),
+			},
+		},
 	},
 	resolve: {
 		alias: {
@@ -19,6 +26,11 @@ export default defineConfig({
 	},
 	server: {
 		port: 3030,
-		strictPort: true,
+		strictPort: true
 	},
+	preview: {
+		host: 'localhost',
+		port: 3030,
+		strictPort: true
+	}
 })
