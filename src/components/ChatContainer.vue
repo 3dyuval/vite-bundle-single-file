@@ -1,12 +1,12 @@
 <script setup>
 import Chat from "~/components/Chat.vue";
+import { onBeforeUnmount, onMounted } from "vue";
 defineProps({ open: Boolean, messages: Array });
 defineOptions({ inheritAttrs: false });
 
 const iframeUrl = import.meta.env.VITE_CHAT_URL;
 const concurrently = !import.meta.env.VITE_RUN_SINGLE;
 
-console.info({iframeUrl, concurrently});
 </script>
 <template>
   <div class="chat-container" :class="{ open: open }">

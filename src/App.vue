@@ -1,6 +1,6 @@
 <script setup>
+import ChatController from "~/components/ChatController.vue";
 import ChatContainer from "~/components/ChatContainer.vue";
-import Fab from "~/components/Fab.vue";
 import { reactive, onMounted, onBeforeUnmount } from "vue";
 
 const chat = reactive({
@@ -20,22 +20,25 @@ function toggleChat() {
   chat.open = !chat.open;
 }
 
-let msgInterval
+function newMessage(message) {
+  chat.messages.push(message)
+}
 
-onMounted(() => {
-  msgInterval = setInterval(() => {
-      chat.messages.push('message...')
-  }, 3000)
-})
+function allMessages(messages) {
+  chat.messages = messages
+}
 
-onBeforeUnmount(() => {
-  clearInterval(msgInterval);
-})
 </script>
 
 <template>
   <chat-container v-bind="chat" />
-  <fab @open-chat="toggleChat" :count="chat.messages.length" />
+  <chat-controller @chat-close="closeChat"
+                   @open-chat="openChat"
+                   @click="toggleChat"
+                   @new-message="newMessage"
+                   @all-messages="allMessages"
+                   :count="chat.messages.length"
+  />
 </template>
 
 <style lang="scss">

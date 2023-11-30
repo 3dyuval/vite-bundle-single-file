@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 
-import Dashboard from '~/components/Dashboard.vue'
+import Dashboard from './Dashboard.vue'
 
 const app = createApp(Dashboard)
 
